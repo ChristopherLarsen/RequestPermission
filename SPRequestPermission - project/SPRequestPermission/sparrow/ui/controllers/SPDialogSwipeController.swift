@@ -151,7 +151,7 @@ public class SPDialogSwipeController<DialogView: UIView, BottomView: UIView>: SP
             self.updateContentViewShadow(yTranslationFactor: self.dialogShadowYtranslationFactor, blurRadiusFactor: self.dialogShadowBlurRadiusFactor, opacity: self.dialogShadowOpacity)
             self.contentView.center = CGPoint.init(
                 x: self.view.center.x,
-                y: self.view.center.y * 1.2
+                y: self.view.center.y // * 1.2
             )
             SPHideWindow.dialog.presentWith(view: self.backgroundView)
 
@@ -240,10 +240,39 @@ public class SPDialogSwipeController<DialogView: UIView, BottomView: UIView>: SP
         self.bottomView.alpha = 0
         self.bottomView.backgroundColor = UIColor.clear
         self.contentView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0.5)
-        let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(self.handleGesture(sender:)))
-        panGesture.maximumNumberOfTouches = 1
-        self.contentView.addGestureRecognizer(panGesture)
+        
+//        let panGesture = UIPanGestureRecognizer.init(target: self, action: #selector(self.handleGesture(sender:)))
+//        panGesture.maximumNumberOfTouches = 1
+//        self.contentView.addGestureRecognizer(panGesture)
+
         animator = UIDynamicAnimator(referenceView: self.view)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectorDismissDialogue(_:)))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func selectorDismissDialogue(_ :UITapGestureRecognizer) {
+        DispatchQueue.main.async {
+            self.drop()
+        }
+    }
+    
+    func drop() {
+    
+        let myView = self.contentView
+        if attachmentBehavior != nil {
+            animator.removeBehavior(attachmentBehavior)
+        }
+//        snapBehavior = UISnapBehavior(item: myView, snapTo: self.dialogCenteringPoint)
+//        animator.addBehavior(snapBehavior)
+        if delegate?.isEnableHideDialogController ?? true {
+            animator.removeAllBehaviors()
+            gravityBehaviour = UIGravityBehavior(items: [contentView])
+            gravityBehaviour.gravityDirection = CGVector.init(dx: 0, dy: 10)
+            animator.addBehavior(gravityBehaviour)
+            self.hide(withDialog: false)
+        }
+        
     }
     
     //MARK: - inner func

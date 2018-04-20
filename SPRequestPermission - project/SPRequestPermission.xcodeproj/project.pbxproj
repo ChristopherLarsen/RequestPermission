@@ -271,7 +271,6 @@
 				F4B91E511F94E835003ACC18 /* layout */,
 				F4B91E531F94E835003ACC18 /* animation */,
 				F4B91E581F94E835003ACC18 /* downloader */,
-				F4B91E5A1F94E835003ACC18 /* image */,
 				F4B91E5B1F94E835003ACC18 /* audio */,
 				F4B91E5E1F94E835003ACC18 /* device */,
 				F4B91E621F94E835003ACC18 /* сore-spotlight */,
@@ -581,13 +580,6 @@
 				F4B91E591F94E835003ACC18 /* SPDownloader.swift */,
 			);
 			path = downloader;
-			sourceTree = "<group>";
-		};
-		F4B91E5A1F94E835003ACC18 /* image */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = image;
 			sourceTree = "<group>";
 		};
 		F4B91E5B1F94E835003ACC18 /* audio */ = {
@@ -1005,7 +997,7 @@
 				TargetAttributes = {
 					F4BF85821E56274E007A01E8 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = MNM2TM9G7C;
+						DevelopmentTeam = V6N9QQZF6G;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -1297,7 +1289,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MNM2TM9G7C;
+				DEVELOPMENT_TEAM = V6N9QQZF6G;
 				INFOPLIST_FILE = SPRequestPermission/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1311,7 +1303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MNM2TM9G7C;
+				DEVELOPMENT_TEAM = V6N9QQZF6G;
 				INFOPLIST_FILE = SPRequestPermission/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
